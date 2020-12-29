@@ -11,6 +11,20 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'numeros',
+    loadChildren: () => import('./home/numeros/numeros.module').then(m => m.NumerosPageModule)
+  },
+  {
+    path: 'palavras',
+    loadChildren: () => import('./home/palavras/palavras.module').then(m => m.PalavrasPageModule)
+  },
+  {
+    path: 'conteudo',
+    loadChildren: () => import('./home/conteudo/conteudo.module').then(m => m.ConteudoPageModule)
+  }
+
+
 ];
 
 @NgModule({
