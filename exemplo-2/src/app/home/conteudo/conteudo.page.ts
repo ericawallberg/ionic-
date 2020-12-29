@@ -9,82 +9,82 @@ import { Pais } from './conteudo.model'
 export class ConteudoPage implements OnInit {
   paises: Pais[] = [
     {
-      img: 'https://commons.wikimedia.org/wiki/File:Flag_of_Portugal.svg',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/600px-Flag_of_Portugal.svg.png',
       ordem: 1,
       descricao: 'Portugal'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFlag_of_Spain&psig=AOvVaw2GXQr2upARrL__GSNxnuho&ust=1609196496468000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJDN1J6i7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/125px-Flag_of_Spain.svg.png',
       ordem: 2,
       descricao: 'Espanha'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFlag_of_France&psig=AOvVaw0Qe6neX6Ay1fSx3HG3d2Cg&ust=1609196510979000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMi9zKWi7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/125px-Flag_of_France.svg.png',
       ordem: 3,
       descricao: 'França'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpt.wikipedia.org%2Fwiki%2FFicheiro%3AFlag_of_Germany.svg&psig=AOvVaw3o1EDS2AEku1GUlgbXygR-&ust=1609196542429000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPDwz7Si7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/125px-Flag_of_Germany.svg.png',
       ordem: 4,
       descricao: 'Alemanha'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpt.wikipedia.org%2Fwiki%2FPa%25C3%25ADses_Baixos&psig=AOvVaw1cNQxJ01L4kdQ3djO43F0R&ust=1609196562197000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNDeg76i7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg',
       ordem: 5,
       descricao: 'Países Baixos'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFlag_of_Italy&psig=AOvVaw2q3ahh--PChotNGoe2QW95&ust=1609196590540000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCjw8ui7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/125px-Flag_of_Italy.svg.png',
       ordem: 6,
       descricao: 'Itália'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFlag_of_Denmark&psig=AOvVaw2swJ66FVZ9HebLCtBk0MEF&ust=1609196614073000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIDR4dai7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/125px-Flag_of_Denmark.svg.png',
       ordem: 7,
       descricao: 'Dinamarca'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpt.wikipedia.org%2Fwiki%2FFicheiro%3AFlag_of_Poland.svg&psig=AOvVaw2RbgGfOHNoADGN09usEfR2&ust=1609196638178000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKjoo-Ki7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Flag_of_Poland.svg/125px-Flag_of_Poland.svg.png',
       ordem: 8,
       descricao: 'Polónia'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpt.wikipedia.org%2Fwiki%2FFicheiro%3AFlag_of_Norway.svg&psig=AOvVaw2bao69ZxerDZGljSPaLBrB&ust=1609196666125000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKi83u-i7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/125px-Flag_of_Norway.svg.png',
       ordem: 9,
       descricao: 'Noruega'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFlag_of_Sweden&psig=AOvVaw3Ffmb_lONffbwuse-jT27p&ust=1609196684475000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNj3qvii7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/125px-Flag_of_Sweden.svg.png',
       ordem: 10,
       descricao: 'Suécia'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.countryflags.com%2Fproduct%2Ffinland-flag-package%2F&psig=AOvVaw35cgnjpB0CXp9_DqnTZW_5&ust=1609196700329000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPD25v-i7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/125px-Flag_of_Finland.svg.png',
       ordem: 11,
       descricao: 'Finlândia'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFlag_of_Estonia&psig=AOvVaw3XwZt38_MFy-YnHDtAoZf0&ust=1609196721953000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOCgnoqj7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flag_of_Estonia.svg/255px-Flag_of_Estonia.svg.png',
       ordem: 12,
       descricao: 'Estónia'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFlag_of_Iceland&psig=AOvVaw3joKiz65g65fXTPE6k4G92&ust=1609196742515000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJD_hZSj7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/200px-Flag_of_Iceland.svg.png',
       ordem: 13,
       descricao: 'Islândia'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpt.wikipedia.org%2Fwiki%2FEslov%25C3%25A1quia&psig=AOvVaw0nsUtgxZ3IKh8aJrSCB1jn&ust=1609196769844000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKDPiKGj7-0CFQAAAAAdAAAAABAI',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Slovakia.svg/200px-Flag_of_Slovakia.svg.png',
       ordem: 14,
       descricao: 'Eslováquia'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFlag_of_Greece&psig=AOvVaw0QWzWDWwTixqqYaMsZXqBU&ust=1609196789915000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKjQzaqj7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/255px-Flag_of_Greece.svg.png',
       ordem: 15,
       descricao: 'Grécia'
     },
     {
-      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.britannica.com%2Ftopic%2Fflag-of-Luxembourg&psig=AOvVaw1mTWl_9R_LY3wtAH7gNYkT&ust=1609196813961000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNijibaj7-0CFQAAAAAdAAAAABAD',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Flag_of_Luxembourg.svg/255px-Flag_of_Luxembourg.svg.png',
       ordem: 16,
       descricao: 'Luxemburgo'
     }
