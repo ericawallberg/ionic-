@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Exemplo 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-row height-50 class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <ion-button (click)="btn1Clicked()" routerLink="/home/numeros">Números</ion-button>
+    </ion-col>
+    <ion-col class="ion-text-center">
+      <ion-button  (click)="btn2Clicked()" routerLink="/home/palavras" >Palavras</ion-button>
+    </ion-col>
+    <ion-col class="ion-text-center">
+      <ion-button  (click)="btn3Clicked()" routerLink="/home/conteudo">Conteúdo</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

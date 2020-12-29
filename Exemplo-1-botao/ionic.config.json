@@ -1,0 +1,7 @@
+{
+  "name": "Exemplo-1-botao",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
