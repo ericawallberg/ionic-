@@ -1,0 +1,8 @@
+{
+  "name": "Exemplo-3-numeros",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "linuxAndroidStudioPath": "/bin/android-studio-launcher"
+}

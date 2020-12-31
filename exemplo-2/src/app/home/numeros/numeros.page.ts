@@ -9,8 +9,9 @@ export class NumerosPage implements OnInit {
 
   array: any[]=[];
 
-  constructor() { for(var i=1;i<=1000;i++){
-    this.array[i]=i;
+  constructor() { 
+    for(var i=1;i<=1000;i++){
+      this.array[i-1]=i;
   } }
 
   ngOnInit() {

@@ -1,0 +1,41 @@
+<ion-header [translucent]="true" primary>
+  <ion-toolbar color="primary">
+    <ion-title>Exemplo-3-v2</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="changeProcessState()">
+        {{statechangeText()}}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content [fullscreen]="true">
+   <ion-header collapse="condense" color="primary">
+    <ion-toolbar>
+      <ion-title size="large">Exemplo-3-v2</ion-title>
+    </ion-toolbar>
+  </ion-header> 
+
+</ion-content> -->
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header> Numero a incrementar </ion-card-header>
+    <ion-card-content>
+      <ion-card-content>
+        <ion-list *ngFor="let num of numeros_inc">
+          <ion-label>{{ num }}</ion-label>
+        </ion-list>
+      </ion-card-content>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header> Numero a decrementar </ion-card-header>
+    <ion-card-content>
+      <ion-card-content>
+        <ion-list *ngFor="let num of numeros_dec">
+          <ion-label>{{ num }}</ion-label>
+        </ion-list>
+      </ion-card-content>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

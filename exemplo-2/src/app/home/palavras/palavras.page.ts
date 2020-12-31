@@ -7,7 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PalavrasPage implements OnInit {
 
-  constructor() { }
+  array: any[]=[];
+  generateRandomNumber(numberOfCharacters) : string{
+    var randomValues = '';
+    var stringValues = 'ABCDEFGHIJKLMNOabcdefghijklmnopqrstuvwxyzPQRSTUVWXYZ';  
+    var sizeOfCharacter = stringValues.length;
+    for (var i = 0; i < numberOfCharacters; i++) {
+       randomValues = randomValues+stringValues.charAt(Math.floor(Math.random() * sizeOfCharacter));
+    }
+    return randomValues;
+ } 
+
+  constructor() { 
+    for(var i=0;i<50;i++){
+      this.array[i]= i+1 +" - " + this.generateRandomNumber(10);
+  } }
 
   ngOnInit() {
   }
