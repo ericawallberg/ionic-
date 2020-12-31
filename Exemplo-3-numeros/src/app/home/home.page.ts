@@ -1,6 +1,9 @@
+import { NumberSymbol } from '@angular/common';
 import { Component } from '@angular/core';
 import { Plugins, FilesystemDirectory, FilesystemEncoding } from '@capacitor/core';
 const { Filesystem, Toast } = Plugins;
+
+const fileName = "/numbers.txt";
 
 @Component({
   selector: 'app-home',
@@ -39,18 +42,20 @@ export class HomePage {
 
   async changeProcessState() {
     if (this.a_processar === false) {
-      this.a_processar = true;
-      this.abrirFicheiro();
       if (this.values_set === false) {
         let ficheiro = await this.abrirFicheiro();
-        this.fazNumeros();
-          
-        //backgroundMode : BackgroundMode;
-        //backgroundMode.enable();
-      } else {
-        this.a_processar = false; 
-      }
+      } 
+      this.a_processar = true;
+      await this.fazNumeros();
+      //backgroundMode : BackgroundMode;
+      //backgroundMode.enable();
+    } else {
+      this.a_processar = false;
     }
+  }
+
+  public delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   /**
@@ -59,12 +64,19 @@ export class HomePage {
    */
   async fazNumeros() {
     while (this.a_processar) {
-      setTimeout(function () {
-        this.numeros_inc.push(++this.numero_a_incrementar);
-        this.numeros_dec.push(--this.numero_a_decrementar);
-      }, 1000);
+      Toast.show({
+        text: "Processo começado."
+      });
+      this.numeros_inc.push(++this.numero_a_incrementar);
+      this.numeros_dec.push(--this.numero_a_decrementar);
+      await this.delay(10000);
     }
+    Toast.show({
+      text: "Processo terminado."
+    });
   }
+
+
 
   /**
    * tenta abrir o ficheiro,se nao conseguir, escreve um novo
@@ -74,7 +86,7 @@ export class HomePage {
       //tentar abrir o ficheiro para leitura
       try {
         let returnFile = await Filesystem.readFile({
-          path: 'numbers.txt',
+          path: fileName,
           directory: FilesystemDirectory.Data,
           encoding: FilesystemEncoding.UTF8
         });
@@ -98,10 +110,14 @@ export class HomePage {
         this.numero_a_incrementar = Math.floor(((99999 - 10000) * Math.random()) + 10000);
         this.numero_a_decrementar = Math.floor(((99999 - 10000) * Math.random()) + 10000);
 
+
+
+
         //tentar criar um ficheiro
+        /*
         try {
           let conteudos = Filesystem.writeFile({
-            path: "numeros.txt",
+            path: fileName,
             data: this.numero_a_incrementar + "\n" + this.numero_a_decrementar,
             directory: FilesystemDirectory.Data,
             encoding: FilesystemEncoding.UTF8,
@@ -111,13 +127,13 @@ export class HomePage {
             text: "Ficheiro criado."
           });
           this.ficheiro_existe = true;
-          this.values_set = true;
         } catch (e) {
           Toast.show({
             text: "Não consigo criar um ficheiro, usar só a memoria."
           });
           this.ficheiro_existe = false;
-        }
+        }*/
+        this.values_set = true;
       }
     }
   }
