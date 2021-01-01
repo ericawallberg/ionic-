@@ -10,8 +10,8 @@ const fileName = "/numbers.txt";
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
 
+export class HomePage {
   a_processar: boolean = false;
   values_set = false;
   ficheiro_existe = false;
@@ -54,7 +54,7 @@ export class HomePage {
     }
   }
 
-  public delay(ms: number) {
+  public sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
@@ -63,20 +63,29 @@ export class HomePage {
    * TODO: melhorar esta parte com uma thread a serio
    */
   async fazNumeros() {
+    Toast.show({
+      text: "Processo começado."
+    });
     while (this.a_processar) {
-      Toast.show({
-        text: "Processo começado."
-      });
       this.numeros_inc.push(++this.numero_a_incrementar);
       this.numeros_dec.push(--this.numero_a_decrementar);
-      await this.delay(10000);
+      this.saveInFile();
+      await this.sleep(10000);
     }
     Toast.show({
       text: "Processo terminado."
     });
   }
 
-
+  saveInFile(){
+    let conteudos = Filesystem.writeFile({
+      path: fileName,
+      data: this.numero_a_incrementar + "\n" + this.numero_a_decrementar,
+      directory: FilesystemDirectory.Documents,
+      encoding: FilesystemEncoding.UTF8,
+      recursive: false
+    });
+  }
 
   /**
    * tenta abrir o ficheiro,se nao conseguir, escreve um novo
@@ -87,42 +96,40 @@ export class HomePage {
       try {
         let returnFile = await Filesystem.readFile({
           path: fileName,
-          directory: FilesystemDirectory.Data,
+          directory: FilesystemDirectory.Documents,
           encoding: FilesystemEncoding.UTF8
         });
 
-        Toast.show({
-          text: "!!!FILE CONTENTES = " + returnFile.data + " !!!!!!"
-        });
 
         let lines = returnFile.data.split('\n');
+        if(isNaN(+lines[0]) || isNaN(+lines[1])){
+          Toast.show({
+            text: "Não são valores validos no ficheiro."
+          });
+          throw TypeError();
+        }
+        
         this.numero_a_incrementar = +lines[0];
         this.numero_a_decrementar = +lines[1];
+        
         this.values_set = true;
 
-        return returnFile.data;
+        Toast.show({
+          text: "Ficheiro lido com os numeros iniciais:"+ this.numero_a_incrementar +this.numero_a_decrementar+" ."
+        });
+        
       } catch (e) {
         Toast.show({
-          text: "Ficheiro não existe, criar um novo."
+          text: "Erro a ler o ficheiro, criar um novo."
         })
 
         //gerar numeros
         this.numero_a_incrementar = Math.floor(((99999 - 10000) * Math.random()) + 10000);
         this.numero_a_decrementar = Math.floor(((99999 - 10000) * Math.random()) + 10000);
-
-
-
-
+        
         //tentar criar um ficheiro
-        /*
         try {
-          let conteudos = Filesystem.writeFile({
-            path: fileName,
-            data: this.numero_a_incrementar + "\n" + this.numero_a_decrementar,
-            directory: FilesystemDirectory.Data,
-            encoding: FilesystemEncoding.UTF8,
-            recursive: false
-          });
+          this.saveInFile();
           Toast.show({
             text: "Ficheiro criado."
           });
@@ -132,9 +139,12 @@ export class HomePage {
             text: "Não consigo criar um ficheiro, usar só a memoria."
           });
           this.ficheiro_existe = false;
-        }*/
-        this.values_set = true;
+        }
       }
+      this.values_set = true;
+      // this.numeros_inc.push(this.numero_a_incrementar);
+      // this.numeros_dec.push(this.numero_a_decrementar);
+      
     }
   }
 }
