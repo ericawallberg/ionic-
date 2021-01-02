@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  foi_mudado_n_vezes = 0;
   texto = "O texto do campo de texto vai aparecer aqui.";
   texto_input : string;
   constructor() {}
