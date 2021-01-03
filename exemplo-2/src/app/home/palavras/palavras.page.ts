@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PalavrasPage implements OnInit {
 
   array: any[]=[];
-  generateRandomNumber(numberOfCharacters) : string{
+  generateRandomWord(numberOfCharacters) : string{
     var randomValues = '';
     var stringValues = 'ABCDEFGHIJKLMNOabcdefghijklmnopqrstuvwxyzPQRSTUVWXYZ';  
     var sizeOfCharacter = stringValues.length;
@@ -20,7 +20,7 @@ export class PalavrasPage implements OnInit {
 
   constructor() { 
     for(var i=0;i<50;i++){
-      this.array[i]= i+1 +" - " + this.generateRandomNumber(10);
+      this.array[i]= i+1 +" - " + this.generateRandomWord(10);
   } }
 
   ngOnInit() {

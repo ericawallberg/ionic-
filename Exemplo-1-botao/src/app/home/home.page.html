@@ -7,11 +7,12 @@
 </ion-header>
 
 <ion-content>
+  <!-- Neste ion-item temos o input de text o e seu label. -->
   <ion-item>
-    <!-- label  -->
     <ion-label>Insira texto</ion-label>
   <ion-input placeholder="Insire aqui texto." class="input-texto" [(ngModel)]="texto_input"></ion-input>
   </ion-item>
+  <!-- Aqui temos o botão que faz o texto abaixo mudar para o input inserido acima.  -->
   <ion-button (click)="mudarTexto()">Clica aqui para mudar o texto.</ion-button>
   <br>
   <ion-label>{{texto}}</ion-label>
